@@ -3,6 +3,8 @@ let posts = [];
 let id = 0;
 let mangaSearchResults = [];
 mangaName = '';
+let favoritesArray = [];
+let favID = 0;
 
 
 
@@ -46,5 +48,26 @@ module.exports = {
             res.status(200).json(mangaSearchResults)
         })
  
-    }
+    },
+    readFav: (req, res) => {
+        res.status(200).json(favoritesArray);
+    },
+    addFav: (req, res) => {
+        let {fav} = req.body
+        favoritesArray.push({favID, fav})
+        favID++
+        console.log(req.params)
+        console.log(favoritesArray)
+        res.status(200).json(favoritesArray)
+    },
+    deleteFav: (req, res) => {
+        let index = favoritesArray.findIndex((favorite) => favorite.favID == req.params.favID)
+        if(index === -1){
+            return favoritesArray;
+        }
+        else{
+            favoritesArray.splice(index, 1)
+        }
+    } 
+
 }

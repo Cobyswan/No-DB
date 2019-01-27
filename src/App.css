@@ -29,7 +29,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+
 }
 ol, ul {
 	list-style: none;
@@ -46,9 +47,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
 .flex-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 main {
@@ -57,30 +61,50 @@ main {
 }
 
 .searchWindowContainer {
+  height: 100vh;
   flex: 2;
   display: flex;
-  align-items: center;
+  position: sticky;
+  background: white;
+  justify-content: center;
 }
 
 .postWindowContainer {
+  height: 100vh;
   flex: 1;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
+}
+
+.postWindow {
+  height: 100vh;
+
 }
 
 .searchContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .searchResultsContainer {
   display: flex;
   flex-direction: column;
+
 }
+
+.searchInputAndButton {
+  display: flex;
+  justify-content: center;
+}
+
 .searchResults {
-  justify-content: flex-start;
-  margin-top: 50px;
-  left: 0;
+  display: flex;
+  flex-direction: column;
+ 
+  
 }
 
 .newPostInputContainer {
@@ -88,6 +112,7 @@ main {
   align-items: center;
   justify-content: center;
   align-self: center;
+  
 }
 
 .postContainer {
@@ -96,14 +121,38 @@ main {
   align-items: center;
 }
 
-.postWindow {
-  align-items: center;
-  justify-content: center;
-}
 .postInfo {
+  width: 200px;
   display: flex;
   margin: 5px;
   border-style: solid;
   border-color: black;
   border-width: 1px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.synopsisText {
+  flex-wrap: wrap;
+  margin-top: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px; 
+  font-size: 24px;
+}
+
+.mangaTitleText {
+  align-self: center;
+  font-size: 24px;
+  margin: 10px 0 5px 0;
+
+}
+
+.postText {
+  flex-wrap: wrap;
+}
+
+.searchImg {
+  height: 50vh;
 }
