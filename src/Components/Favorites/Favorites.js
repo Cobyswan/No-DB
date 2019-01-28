@@ -18,11 +18,17 @@ class Favorites extends Component {
         console.log(this.state.favorites)
     }
 
+    addFavorite() {
+        axios.put('./api/favorite', {}).then(res => {
+
+        })
+    }
+
 
     render(){
         return (
             <div>
-                <button></button>
+                
             </div>
         )
     }

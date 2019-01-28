@@ -54,10 +54,10 @@ module.exports = {
     },
     addFav: (req, res) => {
         let {fav} = req.body
-        favoritesArray.push({favID, fav})
+        favoritesArray.push ({favID, fav})
         favID++
-        console.log(req.params)
-        console.log(favoritesArray)
+        console.log(req.body, 'req.body')
+        console.log(favoritesArray, 'favoritesarry')
         res.status(200).json(favoritesArray)
     },
     deleteFav: (req, res) => {

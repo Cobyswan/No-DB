@@ -15,7 +15,7 @@ app.delete('/api/post/:id', controller.delete)
 app.put('/api/posts/:id', controller.update)
 app.get('/api/manga/:name', controller.search)
 app.get('/api/favorites', controller.readFav)
- app.post('/api/favorite', controller.newFav)
+app.post('/api/favorite/', controller.addFav)
 app.delete('/api/favorite/:favID', controller.deleteFav)
     
 

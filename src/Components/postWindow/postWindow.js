@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import PostDeleteButton from '../postDeleteButton/postDeleteButton';
-import PostEditButton from '../postEditButton/postEditButton';
+import PostFn from '../PostFn/PostFn'
 
 class PostWindow extends Component {
   constructor (props) {
@@ -49,19 +48,21 @@ class PostWindow extends Component {
     return (
       <div className="fullPostContainer">
         <div className="newPostInputContainer">
-          <input
+          <input className='postInput'
             onChange={e => this.handleTextChange (e.target.value)}
-            placeholder="Talk about what youre reading currently"
+            placeholder="Say something..."
           />
-          <button onClick={this.createPost}>Add</button>
+          <button className='postButton' onClick={this.createPost}>Post</button>
         </div>
         <div className="postContainer">
           {this.state.posts.map (post => {
             return (
               <div className="postInfo" key={post.id}>
                 <p className="postText">{post.text}</p>
-                <PostDeleteButton id={post.id} deletePost={this.deletePost} />
-                <PostEditButton id={post.id} editPost={this.editPost} />
+                <div className='postButtonContainer'>
+                  <PostFn className='postDeleteButton'id={post.id} deletePost={this.deletePost} />
+                  <PostFn className='postEditButton' id={post.id} editPost={this.editPost} />
+                </div>
               </div>
             );
           })}

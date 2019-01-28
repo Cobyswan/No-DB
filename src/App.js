@@ -10,7 +10,7 @@ class App extends Component {
       <div className="flex-container">
         <div className="headerContainer">
           <header className="header">
-            <span className="headerTitle" />
+            Manga Favorites
           </header>
         </div>
         <main>
