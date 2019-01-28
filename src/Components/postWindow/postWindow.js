@@ -10,7 +10,8 @@ class PostWindow extends Component {
     this.state = {
       posts: [],
       text: '',
-      editPost: ''
+      editPost: '',
+      time: new Date()
     };
 
     this.createPost = this.createPost.bind (this);
@@ -32,7 +33,7 @@ class PostWindow extends Component {
   }
 
   createPost () {
-    axios.post (`/api/post`, {text: this.state.text}).then (res => {
+    axios.post (`/api/post`, {text: this.state.text, time: this.state.time}).then (res => {
       this.setState ({posts: res.data});
     });
   }
@@ -44,7 +45,7 @@ class PostWindow extends Component {
   }
 
   editPost (id, text) {
-    axios.put (`/api/posts/${id}`, {text: this.state.editPost}).then (res => {
+    axios.put (`/api/posts/${id}`, {text: this.state.editPost, time: this.state.time}).then (res => {
       this.setState ({posts: res.data, editMode: true});
     });
   }
@@ -68,10 +69,11 @@ class PostWindow extends Component {
             return (
               <div className="postInfo" key={post.id}>
                 <p className="postText">{post.text}</p>
+                <p className='postDate'>{post.time}</p>
                 <div className='postButtonContainer'>
                   <PostDeleteButton className='postDeleteButton'id={post.id} deletePost={this.deletePost} />
                   <PostEditButton className='postEditButton' id={post.id} editPost={this.editPost} />
-                  <input onChange={e => this.handleEditChange(e.target.value)}/>
+                  <input className='editPostInput' onChange={e => this.handleEditChange(e.target.value)}/>
                 </div>
               </div>
             );

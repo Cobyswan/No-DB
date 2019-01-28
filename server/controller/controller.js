@@ -10,8 +10,8 @@ let favID = 0;
 
 module.exports = {
     create: (req, res) => {
-        let {text} = req.body
-        posts.push({id, text})
+        let {text, time} = req.body
+        posts.push({id, text, time})
         id++
         res.status(200).json(posts);
     },
@@ -19,11 +19,12 @@ module.exports = {
         res.status(200).json(posts)
     },
     update: (req, res) => {
-        let {text} = req.body;
+        let {text, time} = req.body;
         let index = posts.findIndex((post) => post.id == req.params.id)
         posts[index] = {
             id: posts[index].id,
-            text: text || post[index].text
+            text: text || posts[index].text,
+            time: time
         }
         res.status(200).json(posts)
     },
@@ -54,7 +55,9 @@ module.exports = {
     },
     addFav: (req, res) => {
         let {fav} = req.body
-        favoritesArray.push (fav)
+        if(fav){
+            favoritesArray.push (fav)
+        }
         res.status(200).json(favoritesArray)
     },
     deleteFav: (req, res) => {

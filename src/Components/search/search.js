@@ -87,7 +87,7 @@ class Search extends Component {
                 <p>Title: {manga.title}</p>
                 <p>URL: <a href={`${manga.url}`}>{manga.url}</a></p>
                 <p>Score: {manga.score}</p>
-                <button onClick={() => this.deleteFavorite(manga.mal_id)}>X</button>
+                <button className='xButton' onClick={() => this.deleteFavorite(manga.mal_id)}>X</button>
               </div>
             )
           })}

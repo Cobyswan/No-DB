@@ -3,6 +3,9 @@
    License: none (public domain)
 */
 
+
+@import url('https://fonts.googleapis.com/css?family=Aldrich');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,7 +24,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -31,10 +34,6 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
   color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-  
-  /* color: #1D6287; */
-
 }
 ol, ul {
 	list-style: none;
@@ -58,6 +57,8 @@ table {
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.171), rgba(0, 0, 0, 0.24)), url(./My\ Post.jpg);
+  background-size: contain;
 }
 
 main {
@@ -74,6 +75,8 @@ header {
   color: white;
   background: black;
   font-size: 32px;
+  font-family: 'Aldrich', sans-serif;
+
 }
 
 .searchWindowContainer {
@@ -81,9 +84,12 @@ header {
   flex: 1;
   display: flex;
   position: sticky;
-  background: #0C2A3A;
+  background: rgba(12, 42, 58, 0.911);
   justify-content: center;
   margin-left: 100px;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
 }
 
 .postWindowContainer {
@@ -92,8 +98,11 @@ header {
   align-items: center;
   justify-content: center;
   margin-left: 10px;
-  background: #0C2A3A;
+  background: rgba(12, 42, 58, 0.911);
   margin-right: 100px;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
 }
 
 .postWindow {
@@ -103,7 +112,6 @@ header {
 .searchContainer {
   display: flex;
   flex-direction: column;
-  background: #0C2A3A;
   min-height: 100vh;
 }
 
@@ -140,15 +148,16 @@ header {
   width: 94%;
   display: flex;
   margin: 5px;
-  border: 2px solid #ccc;
+  border: 2px solid black;
   border-radius: 4px;
-  background-color: #154661;
-  border-width: 1px;
+  background-color: #154661ab;
   color: white;
   flex-wrap: wrap;
   padding: 10px;
   justify-content: space-between;
   margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .synopsisText {
@@ -156,7 +165,7 @@ header {
   
   border-style: solid;
   border-color: black;
-  border-width: 1px; 
+  border-width: 3px; 
   font-size: 24px;
   padding: 10px;
 }
@@ -191,27 +200,31 @@ header {
   justify-content: center;
   justify-content: space-between;
   padding: 5px;
+  background-color: #154661ab
 }
 
 .favTitle {
   align-self: center;
   border-style: solid;
   border-color: black;
-  border-width: 1px;
+  border-width: 3px;
   padding: 10px 286px;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 24px;
+  background-color: #154661ab;
   
 }
 
 .searchBar {
-  width: 200px;
+  width: 250px;
   margin-right: 10px;
-  border: 2px solid #ccc;
+  border: 2px solid black;
   border-radius: 4px;
-  background-color: #154661;
+  background-color: #154661ab;
   border-width: 1px;
   color: white;
+  height: 30px;
+  font-size: 20px;
 }
 
 .searchButton {
@@ -219,14 +232,14 @@ header {
 }
 
 .postInput {
-  width: 99%;
+
   height: 75px;
   padding:  5px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: 2px solid black;
   border-radius: 4px;
-  background-color: #154661;
-  margin: 0 3px;
+  background-color: #154661ab;
+  font-size: 15px;
   color: white;
 }
 .postButton, .searchButton, .favoriteButton, .postDeleteButton, .postEditButton {
@@ -234,27 +247,49 @@ header {
   background: #414141;
   border-style: solid;
   border-width: 1px;
-  border-color: #414141;
+  border-color:black;
   border-radius: 3px;
 }
 
-.postButton {
-  width: 99%;
-  margin-left: 3px;
-  margin-top: 3px;
-}
  .fullPostContainer {
-   margin-top: 5px;
    min-height: 100vh;
  }
 
  .postDeleteButton, .postEditButton {
-    margin-right: 5px;  
+  margin-top: 5px;  
+  margin-right: 5px;  
  }
 
  .searchWindow {
    height: 100vh;
  }
 
+ .xButton {
+  background: #414141;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 3px;
+  color: red;
+ }
+ .editPostInput {
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: #0f3144c5;
+  border-width: 1px;
+  color: white;
+ }
+
+ .postDate {
+   margin-top: 20px;
+ }
+
+ * {
+  font-family: 'Aldrich', sans-serif;
+ }
+
+ .postButton {
+ padding: 5px;
+ }
  
 
