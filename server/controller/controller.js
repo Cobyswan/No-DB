@@ -54,20 +54,18 @@ module.exports = {
     },
     addFav: (req, res) => {
         let {fav} = req.body
-        favoritesArray.push ({favID, fav})
-        favID++
-        console.log(req.body, 'req.body')
-        console.log(favoritesArray, 'favoritesarry')
+        favoritesArray.push (fav)
         res.status(200).json(favoritesArray)
     },
     deleteFav: (req, res) => {
-        let index = favoritesArray.findIndex((favorite) => favorite.favID == req.params.favID)
+        let index = favoritesArray.findIndex((favorite) => favorite.mal_id == req.params.favID)
         if(index === -1){
             return favoritesArray;
         }
         else{
             favoritesArray.splice(index, 1)
         }
+        res.status(200).json(favoritesArray)
     } 
 
 }

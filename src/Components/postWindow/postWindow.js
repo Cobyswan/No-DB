@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import PostFn from '../PostFn/PostFn'
+import PostEditButton from '../PostEditButton/PostEditButton'
+import PostDeleteButton from '../postDeleteButton/postDeleteButton'
 
 class PostWindow extends Component {
   constructor (props) {
@@ -9,6 +10,7 @@ class PostWindow extends Component {
     this.state = {
       posts: [],
       text: '',
+      editPost: ''
     };
 
     this.createPost = this.createPost.bind (this);
@@ -18,6 +20,9 @@ class PostWindow extends Component {
 
   handleTextChange (val) {
     this.setState ({text: val});
+  }
+  handleEditChange (val) {
+    this.setState ({editPost: val});
   }
 
   componentDidMount () {
@@ -38,10 +43,14 @@ class PostWindow extends Component {
     });
   }
 
-  editPost (id) {
-    axios.put (`/app/posts/${id}`, {text: this.state.text}).then (res => {
-      this.setState ({posts: res.data});
+  editPost (id, text) {
+    axios.put (`/api/posts/${id}`, {text: this.state.editPost}).then (res => {
+      this.setState ({posts: res.data, editMode: true});
     });
+  }
+
+  hideEdit(){
+    this.setState({editMode: false})
   }
 
   render () {
@@ -60,8 +69,9 @@ class PostWindow extends Component {
               <div className="postInfo" key={post.id}>
                 <p className="postText">{post.text}</p>
                 <div className='postButtonContainer'>
-                  <PostFn className='postDeleteButton'id={post.id} deletePost={this.deletePost} />
-                  <PostFn className='postEditButton' id={post.id} editPost={this.editPost} />
+                  <PostDeleteButton className='postDeleteButton'id={post.id} deletePost={this.deletePost} />
+                  <PostEditButton className='postEditButton' id={post.id} editPost={this.editPost} />
+                  <input onChange={e => this.handleEditChange(e.target.value)}/>
                 </div>
               </div>
             );

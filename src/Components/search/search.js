@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 // import SearchResults from '../searchResult/searchResult';
 import axios from 'axios';
-import Favorites from '../Favorites/Favorites'
 
 class Search extends Component {
   constructor (props) {
@@ -31,15 +30,19 @@ class Search extends Component {
   searchForManga () {
     axios.get (`/api/manga/${this.state.name}`).then (res => {
       this.setState ({mangaReturn: res.data.results});
-      console.log(this.state.mangaReturn)
     });
+    
   }
 
   addToFavorites () {
-    axios.post (`/api/favorite/`, {fav: this.state.mangaReturn}).then (res => {
-       this.setState({favorites: res.data.results})
-       console.log(res.data.results)
-       console.log(this.state.favorites)
+    axios.post (`/api/favorite/`, {fav: this.state.mangaReturn[0]}).then (res => {
+      this.setState({favorites: res.data})
+    })
+  }
+
+  deleteFavorite (mal_id) {
+    axios.delete(`/api/favorite/${mal_id}`).then(res => {
+      this.setState({favorites: res.data})
     })
   }
 
@@ -84,6 +87,7 @@ class Search extends Component {
                 <p>Title: {manga.title}</p>
                 <p>URL: <a href={`${manga.url}`}>{manga.url}</a></p>
                 <p>Score: {manga.score}</p>
+                <button onClick={() => this.deleteFavorite(manga.mal_id)}>X</button>
               </div>
             )
           })}

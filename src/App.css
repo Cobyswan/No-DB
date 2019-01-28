@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
   color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
   
   /* color: #1D6287; */
 
@@ -56,6 +57,7 @@ table {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -75,7 +77,7 @@ header {
 }
 
 .searchWindowContainer {
-  height: 100vh;
+  min-height: 100vh;
   flex: 1;
   display: flex;
   position: sticky;
@@ -85,7 +87,7 @@ header {
 }
 
 .postWindowContainer {
-  height: 100vh;
+  min-height: 100vh;
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -95,15 +97,14 @@ header {
 }
 
 .postWindow {
-  height: 100vh;
-  
+  min-height: 100vh;
 }
 
 .searchContainer {
   display: flex;
   flex-direction: column;
   background: #0C2A3A;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .searchResultsContainer {
@@ -121,8 +122,6 @@ header {
 .searchResults {
   display: flex;
   flex-direction: column;
- 
-  
 }
 
 .newPostInputContainer {
@@ -134,10 +133,11 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
 .postInfo {
-  width: 95%;
+  width: 94%;
   display: flex;
   margin: 5px;
   border: 2px solid #ccc;
@@ -147,9 +147,8 @@ header {
   color: white;
   flex-wrap: wrap;
   padding: 10px;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 10px;
-
 }
 
 .synopsisText {
@@ -166,22 +165,22 @@ header {
   align-self: center;
   font-size: 32px;
   margin: 10px 0 10px 0;
-
 }
 
 .postText {
   flex-wrap: wrap;
-  align-self: flex-start
+  margin-right: 5px;
+  left: 0;
 }
 
 .searchImg {
-  height: 50vh;
+  height: 80vh;
   
 }
 
 .favoritesContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .favorite{
@@ -191,7 +190,7 @@ header {
   border-width: 1px;
   justify-content: center;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 5px;
 }
 
 .favTitle {
@@ -221,7 +220,7 @@ header {
 
 .postInput {
   width: 99%;
-  height: 100px;
+  height: 75px;
   padding:  5px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -246,8 +245,16 @@ header {
 }
  .fullPostContainer {
    margin-top: 5px;
+   min-height: 100vh;
  }
 
- .postButtonContainer {
-   
+ .postDeleteButton, .postEditButton {
+    margin-right: 5px;  
  }
+
+ .searchWindow {
+   height: 100vh;
+ }
+
+ 
+
